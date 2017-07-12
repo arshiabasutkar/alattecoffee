@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVadb shell settings put global verifier_verify_adb_installs 0ersion 26
+    compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "com.girlswhocode.arshiabasutkar.myapplication"
-        minSdkVersion 15
+        applicationId "com.girlswhocode.arshiabasutkar.thirdtimesthecharm"
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
