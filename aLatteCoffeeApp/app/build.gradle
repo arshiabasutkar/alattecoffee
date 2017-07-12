@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "com.girlswhocode.arshiabasutkar.alattecoffee"
+        applicationId "com.girlswhocode.arshiabasutkar.myapplication"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
