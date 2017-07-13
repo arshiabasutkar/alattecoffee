@@ -9,6 +9,23 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import android.support.v4.app.FragmentActivity;
+
+public class MyActivity extends FragmentActivity
+        implements OnConnectionFailedListener {
+    private GoogleApiClient mGoogleApiClient;
+
+
+
+    // TODO: Please implement GoogleApiClient.OnConnectionFailedListener to
+    // handle connection failures.
+}
+
+
+
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mGoogleApiClient = new GoogleApiClient
+                .Builder(this)
+                .addApi(Places.GEO_DATA_API)
+                .addApi(Places.PLACE_DETECTION_API)
+                .enableAutoManage(this, this)
+                .build();
+
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
 
     @Override
