@@ -8,32 +8,37 @@
     </script>
 
     <script>
+    var map;
+    var infoWindow;
+    var request;
+    var service;
+    var markers = [];
+
     function initialize () {
       var center = new google.maps.LatLng(33.9022481, -84.45803990000002); //Our location will be the user location
-      var map = new google.maps.Map(document.getElementById("map"), {
+      map = new google.maps.Map(document.getElementById("map"), {
         center: center,
         zoom: 13
       });
 
-      var request = {
+      request = {
         location: center,
         radius: 8047,
         types: ["cafe"]
       };
-      var infoWindow = new google.maps.InfoWindow();
-      var service = new google.maps.places.PlacesService(map);
+      infoWindow = new google.maps.InfoWindow();
+      service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, callback);
 
-      google.maps.event.addListener(map, "rightclick", function(event) {
-        map.setCenter(event.latLng)
-        var markers = [];
+      google.maps.event.addListener(map, "rightclick", function(random) {  // random is latLng for center
+        map.setCenter(random.latLng)
         clearResults(markers)
-        var request = {
-          location: event.latLng,
+        var request = {  // request is array of all cafes
+          location: random.latLng,
           radius: 8047,
           types: ["cafe"]
         };
-        service.nearbySearch(request, callback);
+        service.nearbySearch(request, callback);  // retrieves list of places in search radius
       })
     }
 
