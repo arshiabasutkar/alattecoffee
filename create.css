@@ -1,0 +1,11 @@
+body {
+  color: #ffffff;
+  background-size:cover;
+}
+h2 {
+  text-align: center;
+  color: #ffffff;
+}
+#bgimg {
+  opacity:.7;
+}
