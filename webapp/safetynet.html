@@ -10,6 +10,7 @@
     <script>
       var map;
       var infoWindow;
+      var infoWindowContent;
       var request;
       var service;
       var markers = [];
@@ -94,7 +95,8 @@
           position: place.geometry.location
         });
         google.maps.event.addListener(marker, "click", function() {
-          infoWindow.setContent(place.name);
+          var content = place.name;
+          infoWindow.setContent(content);
           infoWindow.open(map, this);
         });
         return marker;
@@ -117,15 +119,16 @@
         <div id="searchContainer">
           <input id="searchmap" class="controls" type="text" placeholder="City, address, destination.">
           <select id="searchDist" style="font-size: 14px;">
-            <option value="805" onclick="javascript:setSearchParameter()">1/2 mi</option>
-            <option value="3219" onclick="javascript:setSearchParameter()">2 mi</option>
-            <option value="8047" onclick="javascript:setSearchParameter()" selected>5 mi</option>
-            <option value="16093" onclick="javascript:setSearchParameter()">10 mi</option>
-            <option value="32187" onclick="javascript:setSearchParameter()">20 mi</option>
+            <option value="805">1/2 mi</option>
+            <option value="3219">2 mi</option>
+            <option value="8047" selected>5 mi</option>
+            <option value="16093">10 mi</option>
+            <option value="32187">20 mi</option>
           </select>
     			<button id="searchCoffee" type="button" style="font-size: 15px; padding: 5px; font-weight: bold;" onclick="javascript:setSearchParameter()">Go!</button>
         </div>
       </div>
       <div id="map"></div>
+
     </body>
 </html>
