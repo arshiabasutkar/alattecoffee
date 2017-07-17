@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAi3GLxf0WPbV367ts48lho1oxQR92XFQc">
+    </script>
+    <script>
+      var map;
+      var infoWindow;
+      var request;
+      var service;
+      var markers = [];
+      var geocoder = new google.maps.Geocoder();
+      var geocodeResult;
+      var selectDist;
+      var searchBox;
+
+      function init () {
+        var startCenter = new google.maps.LatLng(33.9022481, -84.45803990000002); // make currentlocation
+
+        //startup location
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: startCenter,
+          zoom: 13
+        });
+        request = {
+          location: startCenter,
+          radius: 8057,
+          types: ["cafe"]
+        };
+        infoWindow = new google.maps.InfoWindow();
+        service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+
+        //search bar
+        var input = document.getElementById('searchmap');
+        searchBox = new google.maps.places.SearchBox(input);
+
+        searchBox.addListener('places_changed',  setSearchParameter); // closes places_changed listener
+
+      }
+
+    	function setSearchParameter() {
+        clearResults(markers);
+        var inputPlace = searchBox.getPlaces();
+  			var geocodeRequest = inputPlace[0].place_id;
+        var bounds = new google.maps.LatLngBounds();
+        inputPlace.forEach(function (place) {
+          if (place.geometry.viewport) {
+            // Only geocodes have viewport.
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+
+        //Geocodes inputPlace to latLng
+        geocoder.geocode( {placeId: geocodeRequest}, geocoding); // closes geocoder
+	     }
+
+      function geocoding(results, status) {
+        map.setCenter(results[0].geometry.location);
+        geocodeResult = results[0].geometry.location;
+
+        // ADDS DISTANCE SELECTION - NOT WORKING
+        var distInput = document.getElementById('searchDist');
+        selectDist = searchDist.options[searchDist.selectedIndex].value;
+        //map.controls[google.maps.ControlPosition.TOP_LEFT].push(distInput);
+
+        var request = {
+          location: geocodeResult,
+          radius: selectDist, // this is the distance you're trying to change with the dropdown menu
+          types: ["cafe"]
+        };
+        service.nearbySearch(request, callback);
+      }
+
+      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            markers.push(createMarker(results[i]));
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+        google.maps.event.addListener(marker, "click", function() {
+          infoWindow.setContent(place.name);
+          infoWindow.open(map, this);
+        });
+        return marker;
+      }
+
+      function clearResults(markers) {
+        for (var m in markers) {
+          markers[m].setMap(null)
+        }
+        markers = []
+      }
+      // onload
+      google.maps.event.addDomListener(window, "load", init);
+    </script>
+  </head>
+
+    <body id="body">
+     <div id="contentHeader">
+        <div style="float: left;float: left; padding: 20px; font-size: 25px; font-weight: bold;">Search</div>
+        <div id="searchContainer">
+          <input id="searchmap" class="controls" type="text" placeholder="City, address, destination.">
+          <select id="searchDist" style="font-size: 14px;">
+            <option value="805" onclick="javascript:setSearchParameter()">1/2 mi</option>
+            <option value="3219" onclick="javascript:setSearchParameter()">2 mi</option>
+            <option value="8047" onclick="javascript:setSearchParameter()" selected>5 mi</option>
+            <option value="16093" onclick="javascript:setSearchParameter()">10 mi</option>
+            <option value="32187" onclick="javascript:setSearchParameter()">20 mi</option>
+          </select>
+    			<button id="searchCoffee" type="button" style="font-size: 15px; padding: 5px; font-weight: bold;" onclick="javascript:setSearchParameter()">Go!</button>
+        </div>
+      </div>
+      <div id="map"></div>
+    </body>
+</html>

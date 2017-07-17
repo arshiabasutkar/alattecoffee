@@ -30,15 +30,15 @@
       service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, callback);
 
-      google.maps.event.addListener(map, "rightclick", function(event) {
-        map.setCenter(event.latLng)
+      google.maps.event.addListener(map, "rightclick", function(random) {  // random is latLng for center
+        map.setCenter(random.latLng)
         clearResults(markers)
-        var request = {
-          location: event.latLng,
+        var request = {  // request is array of all cafes
+          location: random.latLng,
           radius: 8047,
           types: ["cafe"]
         };
-        service.nearbySearch(request, callback);
+        service.nearbySearch(request, callback);  // retrieves list of places in search radius
       })
     }
 
