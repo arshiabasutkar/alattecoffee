@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAi3GLxf0WPbV367ts48lho1oxQR92XFQc">
     </script>
@@ -37,7 +37,7 @@
         service.nearbySearch(request, callback);
 
         //search bar
-        var input = document.getElementById('searchmap');
+        var input = document.getElementById('searchBar');
         searchBox = new google.maps.places.SearchBox(input);
 
         searchBox.addListener('places_changed',  setSearchParameter); // closes places_changed listener
@@ -114,10 +114,10 @@
   </head>
 
     <body id="body">
-     <div id="contentHeader">
+     <div id="mapHeader">
         <div style="float: left;float: left; padding: 20px; font-size: 25px; font-weight: bold;">Search</div>
         <div id="searchContainer">
-          <input id="searchmap" class="controls" type="text" placeholder="City, address, destination.">
+          <input id="searchBar" class="controls" type="text" placeholder="City, address, destination.">
           <select id="searchDist" style="font-size: 14px;">
             <option value="805">1/2 mi</option>
             <option value="3219">2 mi</option>

@@ -1,23 +1,30 @@
+/* GLOBAL STYLES */
+
 html, body {
   height:100%;
   margin:0px;
   padding:0px
 }
-#content {
-  background-color: #ffffff;
-  width: 100%;
+
+.container {
+  display: inline-block;
+  vertical-align: middle;
 }
+
+
+/* EXPLORE PAGE */
+
 #map {
   height: 80%;
 }
-#contentHeader {
+#mapHeader {
    padding: 5px 25px 5px 25px;
     height: 70px;
 }
 #searchContainer {
   height: 33px;
 }
-#searchmap {
+#searchBar {
   background-color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -27,10 +34,9 @@ html, body {
   text-overflow: ellipsis;
   width: 300px;
 }
-#searchmap:focus {
+#searchBar:focus {
   border-color: #4d90fe;
 }
-
 .resultsList {
   background-color: #ffffff;
   color: black;
