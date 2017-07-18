@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:grey;">
+<head>
+<style>
+
+<link href="https://fonts.googleapis.com/css?family=Bubbler+One|Coda|Dosis|Hind+Siliguri|Indie+Flower|Jaldi|Josefin+Sans|Marmelad|Open+Sans+Condensed:300|Patrick+Hand+SC|Rajdhani|Raleway|Unica+One|Vibur|Satisfy" rel="stylesheet">
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Andrea Huang</a>
+  <a href="#">Arshia Basutkar</a>
+  <a href="#">Arushi Gupta</a>
+  <a href="#">Danielle Zhao</a>
+</div>
+
+<h2 style="font-family: 'Dosis', sans-serif;">  Our Purpose</h2>
+<p>Welcome to "A Latte Coffee". Get it, like a lotta coffee. Ah, we just love coffee so much that we decided to create an app all about it. With thr development of this app, we hope to placer emphasis on smaller, local businesses that struggle to profit with major coffee chains such as Dunkin'
+   Donuts and Starbucks in the way. With this app, the user has the opportunity to explore coffee shops in their area, create their own coffee through recipes, and have the ability to add recipes or coffee shops to a "bucketlist" that allows them to save their search results. We hope you enjoy!</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Meet the Developers </span>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+</body>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {margin:0;}
+.icon-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  position: fixed;
+  bottom: 0;
+}
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+}
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+</style>
+<body>
+
+  <div class="icon-bar">
+    <a class="active" href="#"><i class="fa fa-squares"></i></a>
+    <a href="create.html"><i class="fa fa-square"></i></a>
+    <a href="#"><i class="fa fa-squares"></i></a>
+    <a href="blah2.html"><i class="fa fa-compass"></i></a>
+    <a href="#"><i class="fa fa-squares"></i></a>
+  </div>
+
+</body>
+</html>

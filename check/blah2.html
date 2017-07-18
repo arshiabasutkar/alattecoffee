@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAi3GLxf0WPbV367ts48lho1oxQR92XFQc">
+    </script>
+    <script>
+      var map;
+      var infoWindow;
+      var infoWindowContent;
+      var request;
+      var service;
+      var markers = [];
+      var geocoder = new google.maps.Geocoder();
+      var geocodeResult;
+      var selectDist;
+      var searchBox;
+      var inputPlace;
+
+      function init () {
+        var startCenter = new google.maps.LatLng(33.9022481, -84.45803990000002); // make currentlocation
+
+        //startup location
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: startCenter,
+          zoom: 13
+        });
+        request = {
+          location: startCenter,
+          radius: 8057,
+          types: ["cafe"],
+        };
+        infoWindow = new google.maps.InfoWindow();
+
+        service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+
+        //search bar
+        var input = document.getElementById('searchmap');
+        searchBox = new google.maps.places.SearchBox(input);
+
+        searchBox.addListener('places_changed',  setSearchParameter); // closes places_changed listener
+      }
+
+    	function setSearchParameter() {
+        clearResults(markers);
+        inputPlace = searchBox.getPlaces();
+        console.log(inputPlace);
+  			var geocodeRequest = inputPlace[0].place_id;
+        var bounds = new google.maps.LatLngBounds();
+        inputPlace.forEach(function (place) {
+          if (place.geometry.viewport) {
+            // Only geocodes have viewport.
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+
+        //Geocodes inputPlace to latLng
+        geocoder.geocode( {placeId: geocodeRequest}, geocoding); // closes geocoder
+	     }
+
+      function geocoding(results, status) {
+        map.setCenter(results[0].geometry.location);
+        geocodeResult = results[0].geometry.location;
+
+        // ADDS DISTANCE SELECTION - NOT WORKING
+        var distInput = document.getElementById('searchDist');
+        selectDist = searchDist.options[searchDist.selectedIndex].value;
+        //map.controls[google.maps.ControlPosition.TOP_LEFT].push(distInput);
+
+        var request = {
+          location: geocodeResult,
+          radius: selectDist, // this is the distance you're trying to change with the dropdown menu
+          types: ["cafe"],
+
+        };
+        service.nearbySearch(request, callback);
+      }
+
+      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            markers.push(createMarker(results[i]));
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          icon: "local.png",
+          position: place.geometry.location
+        });
+        marker.addListener('click', function() {
+          var markerPlaceId = place.place_id;
+          //var service1 = google.maps.places.PlacesService(map)
+          service.getDetails({placeId:place.place_id}, function() {
+            infoWindowContent = document.getElementById('infoWindow-content');
+            infoWindowContent.children['place-name'].textContent = place.name;
+            infoWindowContent.children['place-address'].textContent = place.vicinity;
+            infoWindowContent.children['rating'].textContent = place.rating;
+            infoWindowContent.children['price'].textContent = place.price_level;
+          //  infoWindowContent.children['number'].textContent = place.;
+            console.log(place);
+            infoWindow.setContent(infoWindowContent);
+          });
+          infoWindow.open(map, marker);
+        });
+        return marker;
+      }
+
+
+
+      function clearResults(markers) {
+        for (var m in markers) {
+          markers[m].setMap(null);
+        }
+        markers = []
+      }
+      // onload
+      google.maps.event.addDomListener(window, "load", init);
+
+    </script>
+  </head>
+
+    <body id="body">
+     <div id="contentHeader">
+        <div></div>
+        <div id="searchContainer">
+          <input id="searchmap" class="controls" type="text" placeholder="City, address, destination.">
+          <select id="searchDist" class="distSelect">
+            <option value="805">1/2 mi</option>
+            <option value="3219">2 mi</option>
+            <option value="8047" selected>5 mi</option>
+            <option value="16093">10 mi</option>
+            <option value="32187">20 mi</option>
+          </select>
+    			<button id="searchCoffee" type="button" class="button" onclick="javascript:setSearchParameter()">Search</button>
+        </div>
+      </div>
+      <div id="map"></div>
+      <div id="infoWindow-content">
+        <span id="place-name"  class="title"></span><br>
+        Address: <span id="place-address"></span><br>
+        Rating: <span id="rating"></span> /5<br>
+        Price Level: <span id="price"></span> /4<br>
+      </div>
+    </body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {margin:0;}
+
+.icon-bar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+    position: fixed;
+    bottom: 0;
+}
+
+.icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+}
+
+.icon-bar a:hover {
+    background-color: #000;
+}
+
+
+</style>
+<body>
+
+<div class="icon-bar">
+  <a class="active" href="#"><i class="fa fa-squares"></i></a>
+  <a href="create.html"><i class="fa fa-square"></i></a>
+  <a href="#"><i class="fa fa-squares"></i></a>
+  <a href="blah2.html"><i class="fa fa-compass"></i></a>
+  <a href="#"><i class="fa fa-squares"></i></a>
+</div>
+
+</body>
+</html>

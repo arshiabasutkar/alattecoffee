@@ -1,0 +1,48 @@
+body {
+  color: #ffffff;
+  background-size:cover;
+}
+button {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-decoration-color: black;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+h2 {
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Abril Fatface', cursive;
+}
+h3 {
+  font-family: 'Abril Fatface', cursive;
+  color: #ffffff;
+}
+h4 {
+  font-family: 'Abril Fatface', cursive;
+  color: #ffffff;
+}
+ul, ol {
+  font-family: 'Libre Baskerville', serif;
+  color: #ffffff;
+}
+.newspaper {
+    -webkit-columns: 100px 2
+    -moz-columns: 100px 2;
+    columns: 100px 2;
+
+}
+.shadow {
+  box-shadow: 0 0px 0px rgba(0,0,0,0.2);
+  transition: 0.3s
+}
+.shadow:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+  transition: 0.3s
+}
