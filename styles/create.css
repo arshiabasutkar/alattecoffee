@@ -1,6 +1,9 @@
 body {
   color: #ffffff;
   background-size:cover;
+  margin-top: 40px;
+  text-shadow: 3px 3px #000000;
+  line-height: 24px;
 }
 button {
     background-color: #555555;
@@ -15,20 +18,26 @@ button {
     margin: 4px 2px;
     cursor: pointer;
 }
-h2 {
+h1 {
   text-align: center;
+  margin-top: 50px;
+  margin-left: 50px;
   color: #ffffff;
   font-family: 'Abril Fatface', cursive;
+}
+h2 {
+  margin-left: 50px;
+  font-family: 'Abril Fatface', cursive;
+  color: #ffffff;
 }
 h3 {
-  font-family: 'Abril Fatface', cursive;
-  color: #ffffff;
-}
-h4 {
+  margin-left: 50px;
   font-family: 'Abril Fatface', cursive;
   color: #ffffff;
 }
 ul, ol {
+  margin-left: 65px;
+  padding-bottom: 20px;
   font-family: 'Libre Baskerville', serif;
   color: #ffffff;
 }
