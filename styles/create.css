@@ -55,3 +55,24 @@ ul, ol {
   box-shadow: 0 6px 20px rgba(0,0,0,0.7);
   transition: 0.3s
 }
+.nav-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+.nav-bar a {
+  color: white;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 10px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.nav-bar a:hover {
+  background-color: #000;
+}
