@@ -30,8 +30,8 @@ p {
   color: white;
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  padding: 12px 30px;
+  font-size: 24px;
+  padding: 10px 30px;
   text-align: center;
   transition: all 0.3s ease;
 }
@@ -44,7 +44,7 @@ p {
 .intro {
   display: inline-block;
   vertical-align: top;
-  padding:6% 0;
+  padding:10% 0;
 }
 .intro p {
   font-family: 'Montserrat', sans-serif;
@@ -52,7 +52,15 @@ p {
   font-size: 24pt;
   line-height: 56px;
 }
-.intro button {
+.buttonContainer {
+  text-align: center;
+  width: 25%;
+  float:right;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+.buttonContainer button {
   display: inline-block;
   background-color: #000;
   border: none;
@@ -66,7 +74,7 @@ p {
   transition-duration: 0.3s;
   cursor: pointer;
 }
-.intro button:hover {
+.buttonContainer button:hover {
   background-color: #292929;
 }
 
