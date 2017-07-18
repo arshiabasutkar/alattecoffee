@@ -84,6 +84,7 @@
           location: geocodeResult,
           radius: selectDist, // this is the distance you're trying to change with the dropdown menu
           types: ["cafe"],
+          types: !(["restaurant"]),
           keyword: "Starbucks" || "Dunkin' Donuts"
         };
         service.nearbySearch(requestLocal, callbackLocal);
@@ -137,7 +138,6 @@
           map: map,
           icon: "img/corpMarker.png",
           position: place.geometry.location
-          
         });
         marker.addListener('click', function() {
           var markerPlaceId = place.place_id;
@@ -177,7 +177,7 @@
           <select id="searchDist">
             <option value="805">1/2 mi</option>
             <option value="3219">2 mi</option>
-            <option value="8047">5 mi</option>
+            <option value="8047" selected>5 mi</option>
             <option value="16093">10 mi</option>
             <option value="32187">20 mi</option>
           </select>
@@ -185,7 +185,7 @@
         </div>
       </div>
       <div id="map"></div>
-      <div id="infoWindow-content">
+      <div id="infoWindow-content" style="width:240px">
         <span id="place-name"  class="infoWindowTitle"></span><br>
         Address: <span id="place-address"></span><br>
         Rating: <span id="rating"></span> /5<br>
