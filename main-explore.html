@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="styles/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAi3GLxf0WPbV367ts48lho1oxQR92XFQc">
     </script>
     <script>
@@ -116,8 +117,6 @@
         return marker;
       }
 
-
-
       function clearResults(markers) {
         for (var m in markers) {
           markers[m].setMap(null);
@@ -135,67 +134,37 @@
         <div></div>
         <div id="searchContainer">
           <input id="searchmap" class="controls" type="text" placeholder="City, address, destination.">
-          <select id="searchDist" class="distSelect">
+          <select id="searchDist">
             <option value="805">1/2 mi</option>
             <option value="3219">2 mi</option>
             <option value="8047">5 mi</option>
             <option value="16093">10 mi</option>
             <option value="32187">20 mi</option>
           </select>
-    			<button id="searchCoffee" type="button" class="button" onclick="javascript:setSearchParameter()">Search</button>
+    			<button id="searchButton" type="button" onclick="javascript:setSearchParameter()">Search</button>
         </div>
       </div>
       <div id="map"></div>
       <div id="infoWindow-content">
-        <span id="place-name"  class="title"></span><br>
+        <span id="place-name"  class="infoWindowTitle"></span><br>
         Address: <span id="place-address"></span><br>
         Rating: <span id="rating"></span> /5<br>
         Price Level: <span id="price"></span> /4<br>
       </div>
+
+      <!--NAVIGATION-->
+      <div class="nav-bar">
+        <center>
+          <a href="main-create.html" class="nav">
+            <i class="fa fa-list-ul" style="margin:10px 20px 10px 0;"></i>CREATE
+          </a>
+          <a href="main-home.html" class="nav">
+            <i class="fa fa-coffee" style="margin:10px 20px 10px 0;"></i>HOME
+          </a>
+          <a href="main-explore.html" class="nav">
+            <i class="fa fa-compass" style="margin:10px 20px 10px 0;"></i>EXPLORE
+          </a>
+        </center>
+      </div>
     </body>
-</html>
-
-
-<!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {margin:0;}
-
-.icon-bar {
-    width: 100%;
-    background-color: #555;
-    overflow: auto;
-    position: fixed;
-    bottom: 0;
-}
-
-.icon-bar a {
-    float: left;
-    width: 20%;
-    text-align: center;
-    padding: 12px 0;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 36px;
-}
-
-.icon-bar a:hover {
-    background-color: #000;
-}
-
-
-</style>
-<body>
-
-<div class="icon-bar">
-  <a class="active" href="#"><i class="fa fa-squares"></i></a>
-  <a href="main-create.html"><i class="fa fa-square"></i></a>
-  <a href="#"><i class="fa fa-squares"></i></a>
-  <a href="main-explore.html"><i class="fa fa-compass"></i></a>
-  <a href="#"><i class="fa fa-squares"></i></a>
-</div>
-
-</body>
 </html>

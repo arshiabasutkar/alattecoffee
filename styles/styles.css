@@ -1,12 +1,77 @@
+
+/* GLOBAL STYLES */
+
+a {
+  text-decoration: none;
+}
 html, body {
   height:100%;
   margin:0px;
   padding:0px
 }
-#content {
-  background-color: #ffffff;
-  width: 100%;
+h1 {
+  font-family: 'Montserrat', sans-serif;
 }
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+}
+.nav-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+.nav-bar a {
+  color: white;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  padding: 12px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.nav-bar a:hover {
+  background-color: #000;
+}
+
+/* HOME */
+
+.intro {
+  display: inline-block;
+  vertical-align: top;
+  padding:6% 0;
+}
+.intro p {
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  font-size: 24pt;
+  line-height: 56px;
+}
+.intro button {
+  display: inline-block;
+  background-color: #000;
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 12px 24px;
+  margin:6px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.intro button:hover {
+  background-color: #292929;
+}
+
+/* EXPLORE */
+
 #map {
   height: 80%;
 }
@@ -30,7 +95,7 @@ html, body {
 #searchmap:focus {
   border-color: #4d90fe;
 }
-.button {
+#searchButton {
   color: #ffffff;
   background-color: #1293C2;
   border: none;
@@ -41,20 +106,11 @@ html, body {
   padding: 10px 20px;
   text-transform: uppercase;
 }
-.distSelect {
+#searchDist {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
   margin: 20px;
 }
-.title {
+.infoWindowTitle {
   font-weight: bold;
-}
-.resultsList {
-  background-color: #ffffff;
-  color: black;
-  display: inline-block;
-  font-family: 'Open Sans', sans-serif;
-  padding: 10px 11px 10px 13px;
-  width: 30%;
-
 }
