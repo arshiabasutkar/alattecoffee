@@ -75,28 +75,68 @@
         selectDist = searchDist.options[searchDist.selectedIndex].value;
         //map.controls[google.maps.ControlPosition.TOP_LEFT].push(distInput);
 
-        var request = {
+        var requestLocal = {
           location: geocodeResult,
           radius: selectDist, // this is the distance you're trying to change with the dropdown menu
           types: ["cafe"],
-
         };
-        service.nearbySearch(request, callback);
+        var requestCorp = {
+          location: geocodeResult,
+          radius: selectDist, // this is the distance you're trying to change with the dropdown menu
+          types: ["cafe"],
+          types: !(["restaurant"]),
+          keyword: "Starbucks" || "Dunkin' Donuts"
+        };
+        service.nearbySearch(requestLocal, callbackLocal);
+        service.nearbySearch(requestCorp, callbackCorp);
       }
 
-      function callback(results, status) {
+      function callbackLocal(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
-            markers.push(createMarker(results[i]));
+            markers.push(createMarkerLocal(results[i]));
           }
         }
       }
 
-      function createMarker(place) {
+      function callbackCorp(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            markers.push(createMarkerCorp(results[i]));
+          }
+        }
+      }
+
+      function createMarkerLocal(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
           icon: "img/localMarker.png",
+          position: place.geometry.location
+        });
+        marker.addListener('click', function() {
+          var markerPlaceId = place.place_id;
+          //var service1 = google.maps.places.PlacesService(map)
+          service.getDetails({placeId:place.place_id}, function() {
+            infoWindowContent = document.getElementById('infoWindow-content');
+            infoWindowContent.children['place-name'].textContent = place.name;
+            infoWindowContent.children['place-address'].textContent = place.vicinity;
+            infoWindowContent.children['rating'].textContent = place.rating;
+            infoWindowContent.children['price'].textContent = place.price_level;
+          //  infoWindowContent.children['number'].textContent = place.;
+            console.log(place);
+            infoWindow.setContent(infoWindowContent);
+          });
+          infoWindow.open(map, marker);
+        });
+        return marker;
+      }
+
+      function createMarkerCorp(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          icon: "img/corpMarker.png",
           position: place.geometry.location
         });
         marker.addListener('click', function() {
@@ -137,7 +177,7 @@
           <select id="searchDist">
             <option value="805">1/2 mi</option>
             <option value="3219">2 mi</option>
-            <option value="8047">5 mi</option>
+            <option value="8047" selected>5 mi</option>
             <option value="16093">10 mi</option>
             <option value="32187">20 mi</option>
           </select>
@@ -145,7 +185,7 @@
         </div>
       </div>
       <div id="map"></div>
-      <div id="infoWindow-content">
+      <div id="infoWindow-content" style="width:240px">
         <span id="place-name"  class="infoWindowTitle"></span><br>
         Address: <span id="place-address"></span><br>
         Rating: <span id="rating"></span> /5<br>
