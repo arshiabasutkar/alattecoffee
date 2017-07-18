@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAi3GLxf0WPbV367ts48lho1oxQR92XFQc">
     </script>
@@ -24,7 +24,7 @@
         var startCenter = new google.maps.LatLng(33.9022481, -84.45803990000002); // make currentlocation
 
         //startup location
-        map = new google.maps.Map(document.getElementById("map"), {
+      map = new google.maps.Map(document.getElementById("map"), {
           center: startCenter,
           zoom: 13
         });
@@ -36,7 +36,7 @@
         infoWindow = new google.maps.InfoWindow();
 
         service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, callback);
+
 
         //search bar
         var input = document.getElementById('searchmap');
@@ -95,7 +95,7 @@
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
-          icon: "local.png",
+          icon: "img/localMarker.png",
           position: place.geometry.location
         });
         marker.addListener('click', function() {
@@ -138,7 +138,7 @@
           <select id="searchDist" class="distSelect">
             <option value="805">1/2 mi</option>
             <option value="3219">2 mi</option>
-            <option value="8047" selected>5 mi</option>
+            <option value="8047">5 mi</option>
             <option value="16093">10 mi</option>
             <option value="32187">20 mi</option>
           </select>
