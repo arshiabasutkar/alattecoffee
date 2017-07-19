@@ -18,6 +18,9 @@ p {
   line-height: 30px;
   color: #ffffff;
 }
+
+/* NAV BAR */
+
 .nav-bar {
   width: 100%;
   background-color: #555;
@@ -63,7 +66,7 @@ p {
 .buttonContainer button {
   display: inline-block;
   background-color: #000;
-  border: none;
+  border: white;
   color: white;
   font-size: 24px;
   padding: 12px 24px;
@@ -84,40 +87,49 @@ p {
   height: 80%;
 }
 #contentHeader {
-   padding: 5px 25px 5px 25px;
-    height: 70px;
+  background-color: #555;
+  padding: 5px 25px 5px 25px;
+  height: 80px;
 }
-#searchContainer {
-  height: 33px;
+.searchContainer {
+  font-family: 'Montserrat', sans-serif;
+  height: 40px;
+  float: right;
 }
-#searchmap {
+.searchContainer input {
   background-color: #fff;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
   font-weight: 300;
   margin: 12px 10px;
-  padding: 10px 11px 10px 13px;
+  padding: 10px 20px;
   text-overflow: ellipsis;
   width: 300px;
 }
-#searchmap:focus {
+.searchContainer input:focus {
   border-color: #4d90fe;
 }
-#searchButton {
-  color: #ffffff;
+.searchContainer button {
   background-color: #1293C2;
   border: none;
   color: #ffffff;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
   margin: 0px 30px 0px 10px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   text-transform: uppercase;
+  transition-duration: 0.3s;
 }
-#searchDist {
-  font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+.searchContainer button:hover {
+  background-color: #1086b2;
+}
+.searchContainer select {
+  appearance: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
   margin: 20px;
+  padding: 10px 20px;
 }
 .infoWindowTitle {
   font-weight: bold;
