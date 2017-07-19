@@ -2,7 +2,6 @@ body {
   color: #ffffff;
   background-size:cover;
   margin-top: 40px;
-  text-shadow: 3px 3px #000000;
   line-height: 24px;
 }
 button {
@@ -22,22 +21,26 @@ h1 {
   text-align: center;
   margin-top: 50px;
   margin-left: 50px;
+  text-shadow: 3px 3px #000000;
   color: #ffffff;
   font-family: 'Abril Fatface', cursive;
 }
 h2 {
   margin-left: 50px;
+  text-shadow: 3px 3px #000000;
   font-family: 'Abril Fatface', cursive;
   color: #ffffff;
 }
 h3 {
   margin-left: 50px;
+  text-shadow: 3px 3px #000000;
   font-family: 'Abril Fatface', cursive;
   color: #ffffff;
 }
 ul, ol {
   margin-left: 65px;
   padding-bottom: 20px;
+  text-shadow: 3px 3px #000000;
   font-family: 'Libre Baskerville', serif;
   color: #ffffff;
 }
