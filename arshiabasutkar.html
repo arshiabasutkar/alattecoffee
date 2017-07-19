@@ -29,6 +29,44 @@
         background-color: white;
         line-height: 30px;
       }
+      .sidenav {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: #111;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+      }
+
+      .sidenav a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #8D8070;
+          display: block;
+          transition: 0.3s;
+      }
+
+      .sidenav a:hover, .offcanvas a:focus{
+          color: #f1f1f1;
+      }
+
+      .sidenav .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
     </style>
   </head>
 
@@ -45,6 +83,24 @@
           I am so grateful for the experiences and opportunities Girls Who Code has given me. This summer has changed the way I view technology and the importance of women in the field.
           It has also changed the way I view myself and others. Thanks to everyone for making this experience one for the books! </span>
       </p>
+      <center><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Meet the Developers </span></center>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="andreahuang.html">Andrea Huang</a>
+        <a href="arshiabasutkar.html">Arshia Basutkar</a>
+        <a href="arushigupta.html">Arushi Gupta</a>
+        <a href="daniellezhao.html">Danielle Zhao</a>
+      </div>
+      <script>
+      function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+      }
+      </script>
+</div>
       <img src="img/arshia.png" alt="Arshia">
     </div>
     <!--NAVIGATION-->
