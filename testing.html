@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Explore</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="styles/styles.css">
@@ -74,24 +75,17 @@
           location: geocodeResult,
           radius: selectDist, // this is the distance you're trying to change with the dropdown menu
           types: ["cafe"],
-          keyword: "Starbucks+Dunkin'"
+          keyword: "Starbucks, Dunkin, McDonald"
         };
         service.nearbySearch(requestLocal, callbackLocal);
         service.nearbySearch(requestCorp, callbackCorp);
       }
 
+
       function callbackLocal(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
             markers.push(createMarkerLocal(results[i]));
-          }
-        }
-      }
-
-      function callbackCorp(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            markers.push(createMarkerCorp(results[i]));
           }
         }
       }
