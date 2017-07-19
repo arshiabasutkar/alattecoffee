@@ -12,6 +12,9 @@ html, body {
 h1 {
   font-family: 'Montserrat', sans-serif;
 }
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
 p {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
@@ -86,10 +89,20 @@ p {
 #map {
   height: 80%;
 }
-#contentHeader {
+.contentHeader {
   background-color: #555;
-  padding: 5px 25px 5px 25px;
-  height: 80px;
+  padding: 0px 25px 10px 25px;
+  height: 70px;
+}
+.contentHeader h3 {
+  color: white;
+  display: inline-block;
+  font-weight: bold;
+  vertical-align: top;
+}
+.contentHeader img {
+  display: inline;
+  margin: 10px;
 }
 .searchContainer {
   font-family: 'Montserrat', sans-serif;
@@ -101,7 +114,7 @@ p {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 300;
-  margin: 12px 10px;
+  margin: 10px 10px;
   padding: 10px 20px;
   text-overflow: ellipsis;
   width: 300px;
