@@ -1,0 +1,160 @@
+
+/* GLOBAL STYLES */
+  a {
+    text-decoration: none;
+  }
+  html, body {
+    height:100%;
+    margin:0px;
+    padding:0px
+  }
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  h3 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    color: #ffffff;
+  }
+
+/* NAV BAR */
+
+.nav-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+.nav-bar a {
+  color: white;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  padding: 10px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.nav-bar a:hover {
+  background-color: #000;
+}
+.nav-bar a.active {
+  background-color: #000;
+}
+
+/* HOME */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 638px;
+  float: left;
+}
+.intro p {
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  font-size: 24pt;
+  line-height: 56px;
+  margin:32px 0 0 0;
+}
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  max-width: 270px;
+  float: right;
+}
+.buttonContainer button {
+  display: inline-block;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 15px;
+  color: white;
+  font-size: 24px;
+  padding: 12px 24px;
+  margin: 10px 0px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  font-family: "Montserrat", sans-serif;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.buttonContainer button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* EXPLORE */
+
+#map {
+  height: 80%;
+  width: 100%;
+}
+.contentHeader {
+  background-color: #555;
+  padding: 20px 20px;
+  height: 36px;
+}
+.contentHeader h3 {
+  color: white;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  vertical-align: top;
+  line-height: 36px;
+  margin: 0;
+}
+.contentHeader img {
+  display: inline;
+  margin: 0 10px 0 0;
+}
+#searchmap {
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 11px 16px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+#searchmap:focus {
+  border-color: #4d90fe;
+}
+#searchDist {
+  appearance: none;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 0 20px;
+  padding: 10px 0 10px 14px;
+}
+#searchButton {
+  background-color: #1293C2;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 11px 20px;
+  text-transform: uppercase;
+  transition-duration: 0.3s;
+}
+#searchButton:hover {
+  background-color: #1086b2;
+}
+.infoWindowTitle {
+  font-weight: bold;
+}
