@@ -31,10 +31,11 @@ h2 {
   font-family: 'Abril Fatface', cursive;
   color: #ffffff;
 }
-h3 {
+p {
   margin-left: 50px;
   text-shadow: 3px 3px #000000;
   font-family: 'Abril Fatface', cursive;
+  font-size: 125%;
   color: #ffffff;
 }
 ul, ol {
