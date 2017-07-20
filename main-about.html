@@ -1,109 +1,59 @@
 <!DOCTYPE html>
 <html>
-<body style="background-color:grey;">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="styles/styles.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {
-    font-family:'Libre Baskerville', serif;
-    color: white;
-    background: url("img/mtd-backgro.jpeg") no-repeat center center fixed;
-    background-size: cover;
-}
-h2 {
-    font-family:'Libre Baskerville', serif;
-    color: white;
-    font-size: 50px
-}
-p {
-    font-family:'Libre Baskerville', serif;
-    margin-left: 50px;
-    margin-right: 50px;
-    color: white;
-}
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
+  <head>
+	  <title>About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="styles/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Libre+Baskerville|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body {
+        background: url("img/about/about-background1.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+      }
+    </style>
+  </head>
 
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #8D8070;
-    display: block;
-    transition: 0.3s;
-}
+  <body>
+    <div class="about">
+      <center><h1>Our Purpose</h1></center>
+      <p>Welcome to "A Latte Coffee"! Get it? Like, a lotta coffee? Ah, we just love coffee so much that we decided to create a website all about it.
+      With this website, we hope to place emphasis on smaller, local businesses that struggle to profit with major coffee chains such as Dunkin' Donuts and Starbucks in the way.
+      You, the user, also have the opportunity to explore coffee shops in your area and, if you can't go to a coffee shop, create your own coffee with our recipes and YouTube videos. We hope you enjoy!</p>
+      <center> <p style="font-size:30px;cursor:pointer;font-family:'Libre Baskerville', serif; padding: 10px 14px"; onclick="openNav()">&#9776; Meet the Developers </p> </center>
+    </div>
 
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
+    <!--SIDE NAV-->
+    <script>
+      function openNav() {
+          document.getElementById("sidenav").style.width = "250px";
+      }
+      function closeNav() {
+          document.getElementById("sidenav").style.width = "0";
+      }
+    </script>
+    <div id="sidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="about-andrea.html">Andrea Huang</a>
+      <a href="about-arshia.html">Arshia Basutkar</a>
+      <a href="about-arushi.html">Arushi Gupta</a>
+      <a href="about-danielle.html">Danielle Zhao</a>
+    </div>
 
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-</head>
-<body>
-<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet" rel="stylesheet">
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="about-andreahuang.html">Andrea Huang</a>
-  <a href="about-arshiabasutkar.html">Arshia Basutkar</a>
-  <a href="about-arushigupta.html">Arushi Gupta</a>
-  <a href="about-daniellezhao.html">Danielle Zhao</a>
-</div>
-
-<center><h2>Our Purpose</h2></center>
-<p>
-  Welcome to "A Latte Coffee"! Get it? Like, a lotta coffee? Ah, we just love coffee so much that we decided to create a website all about it.
-  With this website, we hope to place emphasis on smaller, local businesses that struggle to profit with major coffee chains such as Dunkin' Donuts and Starbucks in the way.
-  You, the user, also have the opportunity to explore coffee shops in your area and, if you can't go to a coffee shop, create your own coffee with our recipes and YouTube videos. We hope you enjoy!
-</p>
-<center><span style="font-size:30px;cursor:pointer;font-family:'Libre Baskerville', serif;" onclick="openNav()">&#9776; Meet the Developers </span></center>
-
-<script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
-</script>
-<!--NAVIGATION-->
-<div class="nav-bar">
-  <center>
-    <a href="main-create.html" class="nav">
-      <i class="fa fa-list-ul" style="margin:10px 20px 10px 0;"></i>CREATE
-    </a>
-    <a href="main-home.html" class="nav">
-      <i class="fa fa-coffee" style="margin:10px 20px 10px 0;"></i>HOME
-    </a>
-    <a href="main-explore.html" class="nav">
-      <i class="fa fa-compass" style="margin:10px 20px 10px 0;"></i>EXPLORE
-    </a>
-  </center>
-</div>
-</body>
+    <!--NAVIGATION-->
+    <div class="nav-bar">
+      <center>
+        <a href="main-create.html" class="nav">
+          <i class="fa fa-list-ul" style="margin:10px 20px 10px 0;"></i>CREATE
+        </a>
+        <a href="main-home.html" class="nav">
+          <i class="fa fa-coffee" style="margin:10px 20px 10px 0;"></i>HOME
+        </a>
+        <a href="main-explore.html" class="nav">
+          <i class="fa fa-compass" style="margin:10px 20px 10px 0;"></i>EXPLORE
+        </a>
+      </center>
+    </div>
+  </body>
 </html>
