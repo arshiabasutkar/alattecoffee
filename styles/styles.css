@@ -5,6 +5,8 @@ a {
 }
 html, body {
   height:100%;
+  margin:0;
+  padding:0;
 }
 h1 {
   font-family: 'Montserrat', sans-serif;
@@ -213,6 +215,7 @@ p {
 }
 
 
+
 /* ABOUT */
 
 .about {
@@ -269,9 +272,4 @@ p {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
 }
