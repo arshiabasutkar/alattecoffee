@@ -1,25 +1,28 @@
 
 /* GLOBAL STYLES */
-  a {
-    text-decoration: none;
-  }
-  html, body {
-    height:100%;
-    margin:0px;
-    padding:0px
-  }
-  h1 {
-    font-family: 'Montserrat', sans-serif;
-  }
-  h3 {
-    font-family: 'Montserrat', sans-serif;
-  }
-  p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
-    line-height: 30px;
-    color: #ffffff;
-  }
+a {
+  text-decoration: none;
+}
+html, body {
+  height:100%;
+  margin:0px;
+  padding:0px
+}
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+}
+
+
 
 /* NAV BAR */
 
@@ -47,6 +50,8 @@
   background-color: #000;
 }
 
+
+
 /* HOME */
 
 .intro {
@@ -60,7 +65,7 @@
 .intro p {
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
-  font-size: 24pt;
+  font-size: 26pt;
   line-height: 56px;
   margin:32px 0 0 0;
 }
@@ -70,7 +75,7 @@
   justify-content: center;
   text-align: center;
   height: 100%;
-  max-width: 270px;
+  max-width: 290px;
   float: right;
 }
 .buttonContainer button {
@@ -79,7 +84,7 @@
   border: 3px solid white;
   border-radius: 15px;
   color: white;
-  font-size: 24px;
+  font-size: 26px;
   padding: 12px 24px;
   margin: 10px 0px;
   text-align: center;
@@ -93,6 +98,8 @@
   background-color: white;
   color: black;
 }
+
+
 
 /* EXPLORE */
 
@@ -128,9 +135,6 @@
   text-overflow: ellipsis;
   width: 300px;
 }
-#searchmap:focus {
-  border-color: #4d90fe;
-}
 #searchDist {
   appearance: none;
   border: none;
@@ -157,4 +161,66 @@
 }
 .infoWindowTitle {
   font-weight: bold;
+}
+
+
+
+
+
+
+/* ABOUT */
+
+.about {
+  padding: 10px 120px;
+}
+.about h1 {
+  text-transform: uppercase;
+  font-size: 32pt;
+}
+.about p {
+  color: black;
+}
+.about img {
+  padding: 10px  30px 0 0;
+}
+.about span {
+  background-color: white;
+  line-height: 32px;
+  padding: 2px;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  font-family:'Libre Baskerville', serif;
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #8D8070;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav a:hover{
+  color: #f1f1f1;
+}
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

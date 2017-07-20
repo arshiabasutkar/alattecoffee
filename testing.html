@@ -81,7 +81,6 @@
         service.nearbySearch(requestCorp, callbackCorp);
       }
 
-
       function callbackLocal(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
@@ -106,19 +105,7 @@
           position: place.geometry.location,
           zIndex: 1,
         });
-        marker.addListener('click', function() {
-          var markerPlaceId = place.place_id;
-          service.getDetails({placeId:place.place_id}, function() {
-            infoWindowContent = document.getElementById('infoWindow-content');
-            infoWindowContent.children['place-name'].textContent = place.name;
-            infoWindowContent.children['place-address'].textContent = place.vicinity;
-            infoWindowContent.children['rating'].textContent = place.rating;
-            infoWindowContent.children['price'].textContent = place.price_level;
-            console.log(place);
-            infoWindow.setContent(infoWindowContent);
-          });
-          infoWindow.open(map, marker);
-        });
+        marker.addListener('click', sad);
         return marker;
       }
 
@@ -132,14 +119,12 @@
         });
         marker.addListener('click', function() {
           var markerPlaceId = place.place_id;
-          //var service1 = google.maps.places.PlacesService(map)
           service.getDetails({placeId:place.place_id}, function() {
             infoWindowContent = document.getElementById('infoWindow-content');
             infoWindowContent.children['place-name'].textContent = place.name;
             infoWindowContent.children['place-address'].textContent = place.vicinity;
             infoWindowContent.children['rating'].textContent = place.rating;
             infoWindowContent.children['price'].textContent = place.price_level;
-          //  infoWindowContent.children['number'].textContent = place.;
             console.log(place);
             infoWindow.setContent(infoWindowContent);
           });
@@ -164,7 +149,7 @@
     <div class="contentHeader">
       <div style="display: inline-block; float:left">
         <img src="img/localMarker.png">
-        <h3 style="padding-right:40px;">Local Stores</h3> <!--adds space-->
+        <h3 style="padding-right:40px;">Local Stores</h3>
         <img src="img/corpMarker.png">
         <h3>Corporate Stores</h3>
       </div>
