@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAi3GLxf0WPbV367ts48lho1oxQR92XFQc">
     </script>
-    <script type="text/javascript" src="testing.js"></script>
+    <script type="text/javascript" src="main-explore.js"></script>
   </head>
 
-  <body id="body" style="min-width: 1070px;">
+  <body style="min-width: 1070px;">
     <div class="contentHeader">
       <div style="display: inline-block; float:left">
         <img src="img/localMarker.png">
@@ -24,10 +24,10 @@
         <input id="searchmap" type="text" placeholder="City, address, destination.">
         <select id="searchDist">
           <option value="805">1/2 mi</option>
+          <option value="1609">1 mi</option>
           <option value="3219">2 mi</option>
           <option value="8047" selected>5 mi</option>
           <option value="16093">10 mi</option>
-          <option value="32187">20 mi</option>
         </select>
   			<button id="searchButton" type="button" onclick="javascript:setSearchParameter()">Search</button>
       </div>
@@ -52,6 +52,7 @@
         <a href="main-explore.html" class="nav">
           <i class="fa fa-compass" style="margin:10px 20px 10px 0;"></i>EXPLORE
         </a>
+        <button id=moreResults style="float:right" hidden>more results</button>
       </center>
     </div>
   </body>

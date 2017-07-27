@@ -46,7 +46,7 @@ function setSearchParameter() {
   geocoder.geocode( {placeId: geocodeRequest}, geocoding);
  }
 
-function geocoding(results, status) {
+function geocoding(results) {
   map.setCenter(results[0].geometry.location);
   geocodeResult = results[0].geometry.location;
 
@@ -56,12 +56,12 @@ function geocoding(results, status) {
 
   var requestLocal = {
     location: geocodeResult,
-    radius: selectDist, // this is the distance you're trying to change with the dropdown menu
+    radius: selectDist,
     types: ["cafe"],
   };
   var requestCorp = {
     location: geocodeResult,
-    radius: selectDist, // this is the distance you're trying to change with the dropdown menu
+    radius: selectDist,
     types: ["cafe"],
     keyword: "Starbucks, Dunkin, McDonald"
   };
@@ -73,6 +73,16 @@ function callbackLocal(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       markers.push(createMarkerLocal(results[i]));
+      var moreButton = document.getElementById('moreResults');
+
+      if (pagination.hasNextPage) {
+        moreButton.addEventListener('click', function() {
+          pagination.nextPage();
+        });
+      }
+      else {
+        moreButton.setAttribute("type", "hidden");
+      }
     }
   }
 }
@@ -93,7 +103,19 @@ function createMarkerLocal(place) {
     position: place.geometry.location,
     zIndex: 1,
   });
-  marker.addListener('click', sad);
+  marker.addListener('click', function() {
+    var markerPlaceId = place.place_id;
+    service.getDetails({placeId:place.place_id}, function() {
+      infoWindowContent = document.getElementById('infoWindow-content');
+      infoWindowContent.children['place-name'].textContent = place.name;
+      infoWindowContent.children['place-address'].textContent = place.vicinity;
+      infoWindowContent.children['rating'].textContent = place.rating;
+      infoWindowContent.children['price'].textContent = place.price_level;
+      console.log(place);
+      infoWindow.setContent(infoWindowContent);
+    });
+    infoWindow.open(map, marker);
+  });
   return marker;
 }
 
